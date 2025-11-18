@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+<div class="login-container">
+    <div class="login-box">
+
+        <h1>Gestão de Clubes e Grupos de Extensão</h1>
+        <h2 class="app-title">Login</h2>
+
+        {% if messages %}
+            {% for msg in messages %}
+                <p style="color:red">{{ msg }}</p>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            
+            <input type="text" name="username" placeholder="Usuário" class="app-input">
+            <input type="password" name="password" placeholder="Senha" class="app-input">
+
+            <button class="app-button-primary">Entrar</button>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

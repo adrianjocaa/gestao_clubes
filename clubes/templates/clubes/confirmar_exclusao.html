@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+{% block title %}Excluir Clube{% endblock %}
+{% block content %}
+<h2 class="app-title">Excluir Grupo: {{ clube.nome }}</h2>
+<p>Tem certeza que deseja excluir o grupo "{{ clube.nome }}"?</p>
+<form method="POST">{% csrf_token %}
+  <button class="app-button-danger">Confirmar Exclusão</button>
+  <a href="{% url 'dashboard' %}" class="app-button-secondary">Cancelar</a>
+
+</form>
+{% endblock %}

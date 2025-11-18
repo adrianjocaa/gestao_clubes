@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h2 class="app-title">Grupos</h2>
+
+<a href="{% url 'adicionar_clube' %}" class="app-button-success">+ Adicionar Grupo</a>
+
+<table class="app-table">
+  <tr>
+    <th>Nome do Grupo</th>
+    <th>Descrição</th>
+    <th>Responsável</th>
+    <th>Ações</th>
+  </tr>
+
+  {% for c in clubes %}
+  <tr>
+    <td>{{ c.nome }}</td>
+    <td>{{ c.descricao }}</td>
+    <td>{{ c.responsavel.username }}</td>
+
+    <td>
+      <a href="{% url 'editar_clube' c.pk %}" class="app-button-primary app-button-small">Editar</a>
+      <a href="{% url 'excluir_clube' c.pk %}" class="app-button-danger app-button-small">Excluir</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}

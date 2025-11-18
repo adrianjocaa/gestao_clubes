@@ -1,0 +1,14 @@
+{% extends 'core/base.html' %}
+{% block title %}Novo Clube{% endblock %}
+{% block content %}
+<h2 class="app-title">{% if clube %}Editar Grupo  : {{ clube.nome }}{% else %}Novo Grupo{% endif %}</h2>
+
+<form method="POST">{% csrf_token %}
+  <input type="text" name="nome" placeholder="Nome do Grupo" class="app-input1" value="{% if clube %}{{ clube.nome }}{% endif %}">
+  <textarea name="descricao" placeholder="Descrição" class="app-textarea1">{% if clube %}{{ clube.descricao }}{% endif %}</textarea>
+  <button class="app-button-primary">Salvar</button>
+</form>
+  <div>
+    <button onclick="history.back()" class="app-button-primary">Voltar</button>
+</div>
+{% endblock %}

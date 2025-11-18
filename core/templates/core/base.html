@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}Gestão de Grupos{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+  <nav class="app-navbar">
+    <div class="app-navbar-container">
+      <a class="app-navbar-brand" href="/">Gestão de Grupos Extesionista</a>
+
+      <div class="app-navbar-links">
+
+        <a href="/" class="app-nav-link">Início</a>
+
+        {% if user.is_authenticated %}
+            <a href="/clubes/dashboard/" class="app-nav-link">Painel</a>
+            <a href="{% url 'logout' %}" class="app-nav-link">Sair</a>
+        {% else %}
+            <a href="/" class="app-nav-link">Login</a>
+        {% endif %}
+
+      </div>
+    </div>
+  </nav>
+
+  <main class="app-content">
+    {% block content %}{% endblock %}
+  </main>
+
+</body>
+</html>
