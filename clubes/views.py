@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Clube
 from django.contrib.auth.decorators import login_required
 
+
 @login_required
 def dashboard(request):
     clubes = Clube.objects.all()
